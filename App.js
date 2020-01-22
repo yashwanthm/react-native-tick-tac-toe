@@ -9,14 +9,23 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, StatusBar, View} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+// import {Colors} from 'react-native/Libraries/NewAppScreen';
+const {Colors} = {
+  Colors: {
+  white: '#fff',
+  lighter: '#ddd',
+  dark: '#000',
+  black: '#333'
+  }
+  
+}
 import Game from './Game';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeContainer}>
         <View styles={styles.sectionContainer}>
           <Text style={styles.sectionDescription}>
             Tick Tac Toe Hiver Assignment
@@ -39,10 +48,16 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
   },
-  sectionContainer: {
-    marginTop: 50,
-    paddingHorizontal: 24,
+  safeContainer: {
     flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  sectionContainer: {
+    flex: 1,
+    marginTop: 50,
+    backgroundColor: 'blue',
+    paddingHorizontal: 24,
     justifyContent: 'center',
     flexDirection: 'row',
   },
@@ -54,6 +69,7 @@ const styles = StyleSheet.create({
   sectionDescription: {
     marginTop: 30,
     fontSize: 18,
+    textAlign: 'center',
     fontWeight: '400',
     color: Colors.dark,
   },
